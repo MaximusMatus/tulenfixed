@@ -1,0 +1,68 @@
+@use '../abstracts' as *;
+@use "../globals/" as *;
+
+
+header {
+    height: 4rem;
+    color: black;
+    background-color: $pure-white;
+    box-shadow: 0 1px $black-color, 0 2px $orange-color;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  //   .home-link {
+  //     position: absolute;
+  //     inset: 0;
+  //   }
+  }
+
+  .header-wrapper {
+    max-width: 1440px;
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+  //   padding: 0 2rem;
+  //  @include xl { padding: 0;}
+  max-width: 1440px;
+  width: calc(100% - 10vw);
+  }
+  
+  .logo {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .black-skew {
+    height: 4rem;
+    background-color: $black-color;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .black-skew::before {
+    content: "";
+    position: absolute;
+    height: 4rem;
+    width: 30vw;
+    left: -20vw;
+    background-color: $black-color;
+    transform: skewX(24deg);
+  }
+  
+  .black-skew::after {
+    content: "";
+    position: absolute;
+    height: 4rem;
+    width: 30vw;
+    left: 0;
+    background-color: $black-color;
+  }
+  #hamburger {
+    z-index: 8;
+  }
+  

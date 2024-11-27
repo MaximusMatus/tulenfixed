@@ -1,0 +1,115 @@
+@use "../abstracts" as *;
+@use "../globals/breakpoints" as *;
+
+.article {
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 23rem;
+  margin: 0 auto;
+  gap: 2rem;
+  @include mq(md) {
+    width: calc(100% - 10vw);
+    display: flex;
+    flex-direction: column;
+  }
+  @include mq(lg) {
+    width: calc(100% - 10vw);
+    display: flex;
+    flex-direction: row;
+  }
+  
+  &-wrapper {
+    min-width: 60%;
+
+    max-width: 90rem;
+    background-color: $pure-white;
+    @include ambient-shadow;
+    border-radius: 15px;
+    @include mq(md) {
+    }
+    @include mq(lg) {
+      flex-basis: 0;
+      flex-grow: 1;
+    }
+    @include mq(xl) {
+    }
+
+    .article-headline-wrapper {
+      padding: 1rem 1rem;
+      @include mq(md) {
+        padding: 2rem;
+      }
+      border-bottom: 2px solid $orange-color;
+      .article-title {
+        @include card-font-title;
+        font-weight: $fw-bold;
+        @include font-article-title-small;
+        margin-bottom: 1rem;
+
+        @include mq(md) {
+          @include font-article-title-big;
+        }
+      }
+      .article-headline {
+        // padding: 0 1rem;
+        @include card-font-text;
+        @include font-article-headline-small;
+        margin-bottom: 1rem;
+        @include mq(sm) {
+          @include font-article-headline-medium;
+        }
+        @include mq(md) {
+          @include font-article-headline-big;
+        }
+      }
+    }
+    .img-wrapper {
+      margin-bottom: 1rem;
+      .article-title-img {
+        // position: relative;
+        padding: 0;
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        // margin-bottom: 2rem;
+        object-fit: cover;
+
+        @include mq(sm) {
+          width: 100%;
+        }
+        @include mq(md) {
+          width: 100%;
+        }
+      }
+    }
+    .article-article-wrapper {
+      padding: 1rem 1rem;
+      @include mq(md) {
+        padding: 2rem;
+      }
+      .article-article {
+        @include font-article-body-small;
+        margin-bottom: 2rem;
+        @include mq(sm) {
+          @include font-article-body-medium;
+        }
+        @include mq(md) {
+          @include font-article-body-big;
+        }
+      }
+    }
+  }
+  &-sidebar {
+    height: 100%;
+    @include mq(md) {
+      display: flex;
+      gap: 3rem;
+    }
+    @include mq(lg) {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+  }
+}

@@ -1,0 +1,24 @@
+@use "../abstracts" as *;
+
+.add-article-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+        margin-bottom: 2rem;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: $size-600;
+        .hashtag{
+            padding:0.5rem;
+        }
+        .article-type {
+            padding: 0.5rem;
+        }
+    }
+
+}

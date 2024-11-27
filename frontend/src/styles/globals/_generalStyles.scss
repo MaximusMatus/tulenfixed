@@ -1,0 +1,41 @@
+@use '../abstracts' as *;
+
+/* CSS reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: inherit;
+}
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+img,
+picture,
+svg {
+  // max-width: 100%;
+  display: block;
+}
+
+/* General Styling */
+body {
+  font-family: "Karla", sans-serif;
+  min-height: 100vh;
+  background-color: $background-darker-white;
+  font-size: $fs-body;
+  color: $black-color;
+  /* line-height: normal; */
+  line-height: 20px;
+}
+
+.body-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
