@@ -5,7 +5,7 @@
   "author": "",
   "license": "ISC",
   "description": "",
-  
+  "type": "module",
   "scripts": {
     "start": "node server.js",
     "backend": "node --watch server.js",
