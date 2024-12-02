@@ -32,7 +32,7 @@ mongoose.connection.once("open", () =>
 )
 
 // const __dirname  = path.resolve()
-console.log(--dirname)
+console.log(__dirname)
 
 if(process.env.MODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/frontend/dist")))
