@@ -31,7 +31,7 @@ mongoose.connection.once("open", () =>
   console.log("MongoDB connected successfully")
 )
 
-// const __dirname  = path.resolve()
+const __dirname  = path.resolve()
 
 
 if(process.env.MODE_ENV === "production") {
