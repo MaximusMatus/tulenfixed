@@ -28,8 +28,6 @@ mongoose.connection.once("open", () =>
   console.log("MongoDB connected successfully")
 )
 
-// const __dirname  = path.resolve()
-console.log(__dirname)
 
 if (process.env.MODE_ENV === "production") {
   // app.use(express.static(path.join(__dirname, "/frontend/dist")))
@@ -41,7 +39,11 @@ if (process.env.MODE_ENV === "production") {
   app.get("*", (req, res) => {
     res.sendFile("/home/matej/tulenserver/tulenfixed/frontend/dist/index.html")
   })
-}
+} 
+// else if (process.env.MODE_ENV === "development") {
+//   const articles = await Article.find().sort({ createdAt: 'desc' })
+//   res.render('articles/index', { articles: articles })
+// }
 
 const articleRouter = require("./routes/articles")
-app.use("/articles", articleRouter)
+app.use("/api/articles", articleRouter)

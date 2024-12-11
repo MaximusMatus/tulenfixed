@@ -7,7 +7,7 @@ function Header() {
     <>
     <header className="header">
       <div className="header-wrapper">
-      {/* <a href="http://localhost:5000">test link</a> */}
+      
       <div className="logo">
       <Link
             className="home-link"

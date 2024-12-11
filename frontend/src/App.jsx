@@ -11,11 +11,12 @@ import Article from "./components/Article"
 import axios from 'axios'
 import {Routes, Route} from 'react-router-dom'
 
+const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT
 
 function App() {
   const [posts, setPosts] = useState([])
   useEffect(() => {
-    axios.get('http://localhost:5000/articles')
+    axios.get(`${API_ENDPOINT}`)
     .then(res => setPosts(res.data))
     .catch(error => console.log(error))
   },[])

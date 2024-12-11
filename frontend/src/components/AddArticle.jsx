@@ -1,7 +1,9 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import axios from "axios"
+const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT
 
+console.log(API_ENDPOINT)
 const AddArticle = () => {
   const [title, setTitle] = useState("")
   const [headline, setHeadline] = useState("")
@@ -49,7 +51,7 @@ console.log(fileName)
     setFileName([])
 
     axios
-      .post("http://localhost:5000/articles/add", formData)
+      .post(`${API_ENDPOINT}/add`, formData)
       .then((res) => console.log("uploaded the article"))
       .catch((err) => {
         console.log(err)

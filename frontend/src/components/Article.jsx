@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom"
 import axios from "axios"
 import Card from "./Card"
 import Paragraphs from "./Paragraphs"
+const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT
 
 function Article() {
   const [title, setTitle] = useState("")
@@ -21,7 +22,7 @@ function Article() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/articles/${id}`)
+      .get(`${API_ENDPOINT}/${id}`)
       .then((res) => [
         setTitle(res.data.title),
         setHeadline(res.data.headline),
@@ -39,7 +40,7 @@ function Article() {
   const [posts, setPosts] = useState([])
   useEffect(() => {
     axios
-      .get("http://localhost:5000/articles")
+      .get("${API_ENDPOINT}/articles")
       .then((res) => setPosts(res.data))
       .catch((error) => console.log(error))
   }, [])

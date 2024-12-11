@@ -13,6 +13,7 @@ function EditArticle() {
   const [hashtag, setHashtag] = useState("")
   const [articleType, setArticleType] = useState("")
   const [fileName, setFileName] = useState([])
+  const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT
 
   const onChangeFile = (e) => {
     // setFileName(e.target.files[0])
@@ -20,7 +21,7 @@ function EditArticle() {
   }
 useEffect(() => {
 
-  axios.get(`http://localhost:5000/articles/${userId}`)
+  axios.get(`${API_ENDPOINT}/${userId}`)
   .then( (res) => [
     setTitle(res.data.title),
     setHeadline(res.data.headline),
@@ -58,7 +59,7 @@ useEffect(() => {
     setArticleType("")
     setFileName([])
     axios
-    .put(`http://localhost:5000/articles/${userId}`, formData)
+    .put(`${API_ENDPOINT}/articles/${userId}`, formData)
     .then((res) => console.log('uploaded the article'))
     .catch((err) => {
       console.log(err)

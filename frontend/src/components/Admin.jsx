@@ -3,12 +3,13 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 import axios from "axios"
+const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT
 
 const Admin = () => {
   const [articles, setArticles] = useState([])
   useEffect(() => {
     axios
-      .get("http://localhost:5000/articles")
+      .get(`${API_ENDPOINT}`)
       .then((res) => setArticles(res.data))
       .catch((error) => console.log(error))
     }, [])
@@ -16,7 +17,7 @@ const Admin = () => {
 
   const deletePost = (id) => {
     axios
-      .delete(`http://localhost:5000/articles/${id}`)
+      .delete(`${API_ENDPOINT}/articles/${id}`)
       .then((res) => alert(res.data))
       .catch((err) => {
         console.log(err)
