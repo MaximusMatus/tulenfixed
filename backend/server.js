@@ -13,7 +13,7 @@ app.use(cors())
 app.use(express.json())
 
 const articleRouter = require("./routes/articles")
-app.use("/api/articles", articleRouter)
+app.use("/articles", articleRouter)
 // Database stuff
 mongoose
   .connect(process.env.MONGO_URI)
