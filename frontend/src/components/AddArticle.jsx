@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import axios from "axios"
 const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT
 
-console.log(API_ENDPOINT)
+
 const AddArticle = () => {
   const [title, setTitle] = useState("")
   const [headline, setHeadline] = useState("")

@@ -17,7 +17,8 @@ function App() {
   const [posts, setPosts] = useState([])
   useEffect(() => {
     axios.get(`${API_ENDPOINT}`)
-    .then(res => setPosts(res.data))
+    .then(res => {setPosts(res.data)
+       console.log(`${API_ENDPOINT}`)})
     .catch(error => console.log(error))
   },[])
   return (
