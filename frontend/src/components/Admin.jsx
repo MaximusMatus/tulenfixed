@@ -17,7 +17,7 @@ const Admin = () => {
 
   const deletePost = (id) => {
     axios
-      .delete(`${API_ENDPOINT}/articles/${id}`)
+      .delete(`${API_ENDPOINT}/${id}`)
       .then((res) => alert(res.data))
       .catch((err) => {
         console.log(err)
