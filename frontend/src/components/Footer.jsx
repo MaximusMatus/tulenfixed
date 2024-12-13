@@ -2,14 +2,10 @@ import { Link } from "react-router-dom"
 
 function Footer() {
   return (
-   
-      <footer className="footer">
-        <div className="footer-logo-div">
-        <Link
-            className="home-link"
-            to={{ pathname: "/" }}
-          >
-          <svg width="49" height="37" viewBox="0 0 49 37" fill='white'>
+    <footer className="footer">
+      <div className="footer-logo-div">
+        <Link className="home-link" to={{ pathname: "/" }}>
+          <svg width="49" height="37" viewBox="0 0 49 37" fill="white">
             <g id="logo">
               <path
                 id="Vector"
@@ -23,11 +19,10 @@ function Footer() {
               />
             </g>
           </svg>
-          </Link>
-          <span>Tuleň</span>
-        </div>
-      </footer>
-    
+        </Link>
+        <span>Tuleň</span>
+      </div>
+    </footer>
   )
 }
 

@@ -13,7 +13,7 @@ function PreviewArticle() {
 
   useEffect(() => {
     axios
-      .get(`${API_ENDPOINT}/${id}`)
+      .get(`/articles/${id}`)
       .then((res) => [
         setTitle(res.data.title),
         setHeadline(res.data.headline),
@@ -32,7 +32,6 @@ function PreviewArticle() {
           <h3 className="article-headline">{headline}</h3>
         </div>
         <div className="img-wrapper">
-
           <img className="article-title-img" src={`/uploads/${fileName}`}></img>
         </div>
         {/* <hr className="design-line"/> */}

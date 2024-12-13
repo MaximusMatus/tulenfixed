@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
-import axios from "axios";
+import axios from "axios"
 
 function EditArticle() {
-
   const userId = useParams().id
 
   const [title, setTitle] = useState("")
@@ -13,26 +12,24 @@ function EditArticle() {
   const [hashtag, setHashtag] = useState("")
   const [articleType, setArticleType] = useState("")
   const [fileName, setFileName] = useState([])
-  const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT
 
   const onChangeFile = (e) => {
-    // setFileName(e.target.files[0])
     setFileName((fileName) => [...fileName, e.target.files[0]])
   }
-useEffect(() => {
+  useEffect(() => {
+    axios
+      .get(`/articles/${userId}`)
+      .then((res) => [
+        setTitle(res.data.title),
+        setHeadline(res.data.headline),
+        setArticle(res.data.article),
+        setAuthor(res.data.author),
+        setHashtag(res.data.hashtag),
+        setArticleType(res.data.articleType),
 
-  axios.get(`${API_ENDPOINT}/${userId}`)
-  .then( (res) => [
-    setTitle(res.data.title),
-    setHeadline(res.data.headline),
-    setArticle(res.data.article),
-    setAuthor(res.data.author),
-    setHashtag(res.data.hashtag),
-    setArticleType(res.data.articleType),
-    
-    console.log(fileName)
-  ])
-},[])
+        console.log(fileName),
+      ])
+  }, [])
   const changeOnClick = (e) => {
     e.preventDefault()
 
@@ -44,9 +41,7 @@ useEffect(() => {
     formData.append("author", author)
     formData.append("hashtag", hashtag)
     formData.append("articleType", articleType)
-    for(let i = 0; i < fileName.length; i++)
-    {
-
+    for (let i = 0; i < fileName.length; i++) {
       formData.append("articleImage", fileName[i])
     }
     console.log(formData)
@@ -59,18 +54,14 @@ useEffect(() => {
     setArticleType("")
     setFileName([])
     axios
-    .put(`${API_ENDPOINT}/articles/${userId}`, formData)
-    .then((res) => console.log('uploaded the article'))
-    .catch((err) => {
-      console.log(err)
-    })
-
-
+      .put(`${API_ENDPOINT}/articles/${userId}`, formData)
+      .then((res) => console.log("uploaded the article"))
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
-
   return (
-    
     <div>
       <div className="add-article-wrapper">
         <h1>Add New Article</h1>

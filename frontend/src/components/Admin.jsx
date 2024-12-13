@@ -3,21 +3,20 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 import axios from "axios"
-const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT
 
 const Admin = () => {
   const [articles, setArticles] = useState([])
   useEffect(() => {
     axios
-      .get(`${API_ENDPOINT}`)
+      .get("/articles")
       .then((res) => setArticles(res.data))
       .catch((error) => console.log(error))
-    }, [])
-    console.log(articles)
+  }, [])
+  console.log(articles)
 
   const deletePost = (id) => {
     axios
-      .delete(`${API_ENDPOINT}/${id}`)
+      .delete("/articles/${id}")
       .then((res) => alert(res.data))
       .catch((err) => {
         console.log(err)
@@ -55,7 +54,7 @@ const Admin = () => {
             >
               Delete
             </button>
-            
+
             <Link to={{ pathname: `/admin/preview/${article._id}` }}>
               <button className="admin-wrapper-post-container-edit">
                 Preview

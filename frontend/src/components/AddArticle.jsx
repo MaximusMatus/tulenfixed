@@ -1,8 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import axios from "axios"
-const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT
-
 
 const AddArticle = () => {
   const [title, setTitle] = useState("")
@@ -16,13 +14,12 @@ const AddArticle = () => {
   const [fileName, setFileName] = useState([])
 
   const onChangeFile = (e) => {
-    // setFileName(e.target.files[0])
     setFileName((fileName) => [...fileName, e.target.files[0]])
   }
 
   const changeOnClick = (e) => {
     e.preventDefault()
-console.log(fileName)
+    console.log(fileName)
     const formData = new FormData()
 
     formData.append("title", title)
@@ -33,9 +30,7 @@ console.log(fileName)
     formData.append("author", author)
     formData.append("hashtag", hashtag)
     formData.append("articleType", articleType)
-    for(let i = 0; i < fileName.length; i++)
-    {
-
+    for (let i = 0; i < fileName.length; i++) {
       formData.append("articleImage", fileName[i])
     }
 
@@ -51,7 +46,7 @@ console.log(fileName)
     setFileName([])
 
     axios
-      .post(`${API_ENDPOINT}/add`, formData)
+      .post("/articles/add", formData)
       .then((res) => console.log("uploaded the article"))
       .catch((err) => {
         console.log(err)
