@@ -3,6 +3,7 @@ const router = express.Router()
 const multer = require("multer")
 const Article = require("../models/article")
 const fs = require("fs")
+const path = require("path")
 
 // ORIGINAL MULTER
 const storage = multer.diskStorage({
@@ -32,7 +33,7 @@ const removeFile = (id) => {
 
 // Request get all articles
 router.get("/", (req, res) => {
-  console.log("tried")
+  
   Article.find()
     .sort({ createdAt: -1 })
     .limit(11)
@@ -49,8 +50,9 @@ router.get("/:id", (req, res) => {
 
 // test with two images
 router.post("/add", upload.array("articleImage", 3), (req, res) => {
-  
+  console.log('tried to save')
   //  const files = req.files
+  console.log(req.body)
   const newArticle = new Article({
     title: req.body.title,
     headline: req.body.headline,

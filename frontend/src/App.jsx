@@ -11,7 +11,8 @@ import Article from "./components/Article"
 import axios from 'axios'
 import {Routes, Route} from 'react-router-dom'
 
-const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT
+// const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT
+const API_ENDPOINT = 'http://localhost:5000/articles'
 
 function App() {
   const [posts, setPosts] = useState([])
