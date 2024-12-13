@@ -18,7 +18,7 @@ function EditArticle() {
   }
   useEffect(() => {
     axios
-      .get(`/articles/${userId}`)
+      .get(`http://localhost:5000/articles/${userId}`)
       .then((res) => [
         setTitle(res.data.title),
         setHeadline(res.data.headline),
@@ -54,7 +54,7 @@ function EditArticle() {
     setArticleType("")
     setFileName([])
     axios
-      .put(`${API_ENDPOINT}/articles/${userId}`, formData)
+      .put(`http://localhost:5000/articles/${userId}`, formData)
       .then((res) => console.log("uploaded the article"))
       .catch((err) => {
         console.log(err)

@@ -16,7 +16,7 @@ const Admin = () => {
 
   const deletePost = (id) => {
     axios
-      .delete("/articles/${id}")
+      .delete("http://localhost:5000/articles/${id}")
       .then((res) => alert(res.data))
       .catch((err) => {
         console.log(err)

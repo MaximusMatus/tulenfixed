@@ -19,7 +19,7 @@ function Article() {
 
   useEffect(() => {
     axios
-      .get(`/articles/${id}`)
+      .get(`http://localhost:5000/articles/${id}`)
       .then((res) => [
         setTitle(res.data.title),
         setHeadline(res.data.headline),
