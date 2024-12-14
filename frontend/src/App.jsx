@@ -18,7 +18,7 @@ function App() {
   const [posts, setPosts] = useState([])
   useEffect(() => {
     axios
-      .get("http://localhost:5000/articles")
+      .get("http://212.57.37.124/articles")
       .then((res) => {
         setPosts(res.data)
       })
