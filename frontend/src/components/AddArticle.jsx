@@ -46,7 +46,7 @@ const AddArticle = () => {
     setFileName([])
 
     axios
-      .post("http://localhost:5000/articles/add", formData)
+      .post("/api/articles/add", formData)
       .then((res) => console.log("uploaded the article"))
       .catch((err) => {
         console.log(err)

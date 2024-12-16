@@ -8,7 +8,7 @@ const Admin = () => {
   const [articles, setArticles] = useState([])
   useEffect(() => {
     axios
-      .get("/articles")
+      .get("/api/articles")
       .then((res) => setArticles(res.data))
       .catch((error) => console.log(error))
   }, [])
