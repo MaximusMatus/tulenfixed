@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import axios from "axios"
+const API_URL = import.meta.env.VITE_API_URL
 
 function PreviewArticle() {
   const [title, setTitle] = useState("")
@@ -13,7 +14,7 @@ function PreviewArticle() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/articles/${id}`)
+      .get(`${API_URL}/api/articles/${id}`)
       .then((res) => [
         setTitle(res.data.title),
         setHeadline(res.data.headline),

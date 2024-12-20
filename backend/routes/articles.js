@@ -33,7 +33,7 @@ const removeFile = (id) => {
 
 // Request get all articles
 router.get("/", (req, res) => {
-  
+  console.log('tried')
   Article.find()
     .sort({ createdAt: -1 })
     .limit(11)

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import axios from "axios"
+const API_URL = import.meta.env.VITE_API_URL
 
 function EditArticle() {
   const userId = useParams().id
@@ -18,7 +19,7 @@ function EditArticle() {
   }
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/articles/${userId}`)
+      .get(`${API_URL}/api/articles/${userId}`)
       .then((res) => [
         setTitle(res.data.title),
         setHeadline(res.data.headline),
@@ -54,7 +55,7 @@ function EditArticle() {
     setArticleType("")
     setFileName([])
     axios
-      .put(`http://localhost:5000/articles/${userId}`, formData)
+      .put(`${API_URL}/api/articles/${userId}`, formData)
       .then((res) => console.log("uploaded the article"))
       .catch((err) => {
         console.log(err)

@@ -16,10 +16,11 @@ function Article() {
   const [fileNameThird, setFileNameThird] = useState("")
 
   const id = useParams().id
+  const API_URL = import.meta.env.VITE_API_URL
 
   useEffect(() => {
     axios
-      .get(`/api/articles/${id}`)
+      .get(`${API_URL}/api/articles/${id}`)
       .then((res) => [
         setTitle(res.data.title),
         setHeadline(res.data.headline),
@@ -37,7 +38,7 @@ function Article() {
   const [posts, setPosts] = useState([])
   useEffect(() => {
     axios
-      .get("/articles")
+      .get(`${API_URL}/articles`)
       .then((res) => setPosts(res.data))
       .catch((error) => console.log(error))
   }, [])
@@ -97,39 +98,3 @@ function Article() {
 
 export default Article
 
-// {/* <section className="article">
-// <div className="article-wrapper">
-//   <div className="article-headline-wrapper">
-//     <h2 className="article-title">{title}</h2>
-//     <h3 className="article-headline">{headline}</h3>
-//   </div>
-//   <div className="img-wrapper">
-//     <img className="article-title-img" src={`/uploads/${fileName}`}></img>
-//   </div>
-//   {/* <hr className="design-line"/> */}
-//   <div className="article-article-wrapper">
-//     <div className="article-article">{articlePartOne}</div>
-//     <div className="img-wrapper">
-//       <img
-//         className="article-title-img"
-//         src={`/uploads/${fileNameSecond}`}
-//       ></img>
-//     </div>
-//     <div className="article-article">{articlePartTwo}</div>
-
-//     <div className="img-wrapper">
-//       <img
-//         className="article-title-img"
-//         src={`/uploads/${fileNameThird}`}
-//       ></img>
-//     <div className="article-article">{articlePartThree}</div>
-
-//     </div>
-//   </div>
-// </div>
-// <div className="article-sidebar">
-//   <div className="article-sidebar-card"><Card classNm="card-medium" article={posts[1]} timeStamp={5}/></div>
-//   <div className="article-sidebar-card"><Card classNm="card-medium" article={posts[2]} timeStamp={5}/></div>
-//   <div className="article-sidebar-card"><Card classNm="card-medium" article={posts[3]} timeStamp={5}/></div>
-// </div>
-// </section> */}
