@@ -6,9 +6,18 @@ const fs = require("fs")
 const path = require("path")
 
 // ORIGINAL MULTER
+// const storage = multer.diskStorage({
+//   destination: (req, file, callback) => {
+//     callback(null, "././frontend/dist/uploads")
+//   },
+//   filename: (req, file, callback) => {
+//     callback(null, file.originalname)
+//   },
+// })
+//VPS MULTER
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
-    callback(null, "././frontend/dist/uploads")
+    callback(null, "./././uploads")
   },
   filename: (req, file, callback) => {
     callback(null, file.originalname)
