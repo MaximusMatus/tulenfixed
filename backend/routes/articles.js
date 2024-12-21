@@ -4,7 +4,7 @@ const multer = require("multer")
 const Article = require("../models/article")
 const fs = require("fs")
 const path = require("path")
-
+require("dotenv").config()
 // ORIGINAL MULTER
 // const storage = multer.diskStorage({
 //   destination: (req, file, callback) => {
@@ -17,7 +17,7 @@ const path = require("path")
 //VPS MULTER
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
-    callback(null, "/home/matej/tulenserver/uploads")
+    callback(null, process.env.UPLOADS)
   },
   filename: (req, file, callback) => {
     callback(null, file.originalname)
