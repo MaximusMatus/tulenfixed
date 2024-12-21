@@ -17,6 +17,7 @@ function Article() {
 
   const id = useParams().id
   const API_URL = import.meta.env.VITE_API_URL
+  const UPLOADS = import.meta.env.VITE_UPLOADS
 
   useEffect(() => {
     axios
@@ -38,7 +39,7 @@ function Article() {
   const [posts, setPosts] = useState([])
   useEffect(() => {
     axios
-      .get(`${API_URL}/articles`)
+      .get(`${API_URL}/api/articles`)
       .then((res) => setPosts(res.data))
       .catch((error) => console.log(error))
   }, [])
@@ -51,7 +52,7 @@ function Article() {
           <h3 className="article-headline">{headline}</h3>
         </div>
         <div className="img-wrapper">
-          <img className="article-title-img" src={`/uploads/${fileName}`}></img>
+          <img className="article-title-img" src={`${UPLOADS}/${fileName}`}></img>
         </div>
         {/* <hr className="design-line"/> */}
         <div className="article-article-wrapper">
@@ -61,7 +62,7 @@ function Article() {
           <div className="img-wrapper">
             <img
               className="article-title-img"
-              src={`/uploads/${fileNameSecond}`}
+              src={`${UPLOADS}/${fileNameSecond}`}
             ></img>
           </div>
           <div className="article-article">
@@ -72,7 +73,7 @@ function Article() {
           <div className="img-wrapper">
             <img
               className="article-title-img"
-              src={`/uploads/${fileNameThird}`}
+              src={`${UPLOADS}/${fileNameThird}`}
             ></img>
           </div>
           <div className="article-article">

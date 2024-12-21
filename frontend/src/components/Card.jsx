@@ -1,4 +1,3 @@
-import picture from "../assets/zuck-vs-musk-m.webp"
 import smiley from "../assets/smiley.svg"
 import humor from "../assets/humor.svg"
 import krimi from "../assets/krimi.svg"
@@ -10,13 +9,12 @@ import spinner from "../assets/spinner.gif"
 import spacePixel from "../assets/pixel.png"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+const UPLOADS = import.meta.env.VITE_UPLOADS
 
 function chooseSvg(hashtag) {
-  
   if (hashtag === "humor") {
     return humor
   } else if (hashtag === "zaujímavosti") {
-    
     return zaujimavosti
   } else if (hashtag === "krimi") {
     return krimi
@@ -27,7 +25,7 @@ function chooseSvg(hashtag) {
   }
 }
 
-function Card({ classNm, article , timeStamp}) {
+function Card({ classNm, article, timeStamp }) {
   const [data, setData] = useState({})
 
   return (
@@ -46,8 +44,8 @@ function Card({ classNm, article , timeStamp}) {
             {/* <img src={spinner} alt="loading..." />) :  */}
             <img
               className="card-img"
-              src={`/uploads/${article.articleImage}`}
-              alt="zuck-vs-musk"
+              src={`${UPLOADS}/${article.articleImage}`}
+              alt="image"
             />
           </div>
           <div className="card-content-wrapper">
@@ -66,7 +64,7 @@ function Card({ classNm, article , timeStamp}) {
                 {!timeStamp && "dnes"}
                 {timeStamp === 1 && `pred 1 dňom`}
                 {timeStamp > 1 && `pred ${timeStamp} dňami`}
-                </span>
+              </span>
             </div>
           </div>
 

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import axios from "axios"
 const API_URL = import.meta.env.VITE_API_URL
+const UPLOADS = import.meta.env.VITE_UPLOADS
 
 function PreviewArticle() {
   const [title, setTitle] = useState("")
@@ -33,7 +34,7 @@ function PreviewArticle() {
           <h3 className="article-headline">{headline}</h3>
         </div>
         <div className="img-wrapper">
-          <img className="article-title-img" src={`/uploads/${fileName}`}></img>
+          <img className="article-title-img" src={`${UPLOADS}/${fileName}`}></img>
         </div>
         {/* <hr className="design-line"/> */}
         <div className="article-article-wrapper">
