@@ -36,11 +36,11 @@
     }
 
     .article-headline-wrapper {
+      border-bottom: 2px solid $orange-color;
       padding: 1rem 1rem;
       @include mq(md) {
         padding: 2rem;
       }
-      border-bottom: 2px solid $orange-color;
       .article-title {
         @include card-font-title;
         font-weight: $fw-bold;
