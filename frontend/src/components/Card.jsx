@@ -44,7 +44,7 @@ function Card({ classNm, article, timeStamp }) {
             {/* <img src={spinner} alt="loading..." />) :  */}
             <img
               className="card-img"
-              src={`${UPLOADS}/${article.articleImage}`}
+              src={`/uploads/${article.articleImage}`}
               alt="image"
             />
           </div>

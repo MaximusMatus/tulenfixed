@@ -52,7 +52,7 @@ function Article() {
           <h3 className="article-headline">{headline}</h3>
         </div>
         <div className="img-wrapper">
-          <img className="article-title-img" src={`${UPLOADS}/${fileName}`}></img>
+          <img className="article-title-img" src={`/uploads/${fileName}`}></img>
         </div>
         {/* <hr className="design-line"/> */}
         <div className="article-article-wrapper">
@@ -62,7 +62,7 @@ function Article() {
           <div className="img-wrapper">
             <img
               className="article-title-img"
-              src={`${UPLOADS}/${fileNameSecond}`}
+              src={`/uploads/${fileNameSecond}`}
             ></img>
           </div>
           <div className="article-article">
@@ -73,7 +73,7 @@ function Article() {
           <div className="img-wrapper">
             <img
               className="article-title-img"
-              src={`${UPLOADS}/${fileNameThird}`}
+              src={`/uploads/${fileNameThird}`}
             ></img>
           </div>
           <div className="article-article">
