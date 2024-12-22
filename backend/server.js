@@ -42,7 +42,7 @@ mongoose.connection.once("open", () =>
 if (process.env.MODE_ENV === "production") {
   // app.use(express.static(path.join(__dirname, "/frontend/dist")))
   // app.use(express.static("/home/matej/tulenserver/tulenfixed/frontend/dist"))
-app.use("/uploads", express.static("/home/matej/tulenserver"))
+// app.use("/uploads", express.static("/home/matej/tulenserver"))
   // app.get("*", (req, res) => {
   //   res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"))
   // })
