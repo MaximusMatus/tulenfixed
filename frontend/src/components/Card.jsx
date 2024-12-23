@@ -9,7 +9,8 @@ import spinner from "../assets/spinner.gif"
 import spacePixel from "../assets/pixel.png"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-const UPLOADS = import.meta.env.VITE_UPLOADS
+
+const API_URL = import.meta.env.VITE_API_URL
 
 function chooseSvg(hashtag) {
   if (hashtag === "humor") {
@@ -44,7 +45,7 @@ function Card({ classNm, article, timeStamp }) {
             {/* <img src={spinner} alt="loading..." />) :  */}
             <img
               className="card-img"
-              src={`/uploads/${article.articleImage}`}
+              src={`${API_URL}/images/${article.articleImage}`}
               alt="image"
             />
           </div>

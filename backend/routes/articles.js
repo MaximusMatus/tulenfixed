@@ -14,10 +14,12 @@ require("dotenv").config()
 //     callback(null, file.originalname)
 //   },
 // })
+
 //VPS MULTER
+
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
-    callback(null, process.env.UPLOADS)
+    callback(null, path.join(__dirname, '../../images'))
   },
   filename: (req, file, callback) => {
     callback(null, file.originalname)

@@ -32,20 +32,18 @@ mongoose.connection.once("open", () =>
 )
 
 
+
+app.use('/images',  express.static(path.join(__dirname, '../images')))
+// app.use('/images',  express.static("C:\Users\matej\OneDrive\Desktop\tulen\images"))
+
 if (process.env.MODE_ENV === "production") {
-  // app.use(express.static(path.join(__dirname, "/frontend/dist")))
+  
   app.use(express.static("/home/matej/tulenserver/tulenfixed/frontend/dist"))
-// app.use("/uploads", express.static("/home/matej/tulenserver"))
-  // app.get("*", (req, res) => {
-  //   res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"))
-  // })
+
   app.get("*", (req, res) => {
     res.sendFile("/home/matej/tulenserver/tulenfixed/frontend/dist/index.html")
   })
 } 
-// else if (process.env.MODE_ENV === "development") {
-//   const articles = await Article.find().sort({ createdAt: 'desc' })
-//   res.render('articles/index', { articles: articles })
-// }
+
 
 
