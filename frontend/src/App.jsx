@@ -10,6 +10,7 @@ import PreviewArticle from "./components/PreviewArticle"
 import Article from "./components/Article"
 import axios from "axios"
 import { Routes, Route } from "react-router-dom"
+import ScrollToTop from "./components/ScrollToTop"
 
 const API_URL = import.meta.env.VITE_API_URL
 
@@ -25,9 +26,12 @@ function App() {
   }, [])
 
   return (
+    
     <div className="body-wrapper">
+        <ScrollToTop />
       <Header />
-      <div className="content-wrapper">
+      <div className="content-wrapper">ň
+        
         <Routes>
           <Route path="/admin" element={<Admin />} />
           <Route path="/admin/add" element={<AddArticle />} />
@@ -36,9 +40,11 @@ function App() {
           <Route path="/" element={<MainSection posts={posts} />} />
           <Route path="/article/:id" element={<Article />} />
         </Routes>
+        
       </div>
       <Footer />
     </div>
+   
   )
 }
 
