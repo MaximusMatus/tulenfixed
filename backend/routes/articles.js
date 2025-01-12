@@ -76,6 +76,9 @@ router.post("/add", upload.array("articleImage", 3), (req, res) => {
     articleImage: req.files[0].originalname,
     articleImageSecond: req.files[1].originalname,
     articleImageThird: req.files[2].originalname,
+    imageFirstSource: req.body.imageFirstSource,
+    imageSecondSource: req.body.imageSecondSource,
+    imageThirdSource: req.body.imageThirdSource,
   })
 
   // C:\Users\matej\OneDrive\Desktop\tulen\frontend\public\uploads
@@ -90,8 +93,13 @@ router.put("/:id", upload.array("articleImage"), (req, res) => {
   Article.findById(req.params.id).then((article) => {
     ;(article.title = req.body.title),
       (article.headline = req.body.headline),
-      (article.article = req.body.article),
-      (article.body = req.body.article),
+      (article.articlePartOne = req.body.articlePartOne),
+      (article.articlePartTwo = req.body.articlePartTwo),
+      (article.articlePartThree = req.body.articlePartThree),
+      (article.author = req.body.author),
+      (article.imageFirstSource = req.body.imageFirstSource),
+      (article.imageSecondSource = req.body.imageSecondSource ),
+      (article.imageThirdSource = req.body.imageThirdSource),
       (article.hashtag = req.body.hashtag),
       (article.articleType = req.body.articleType),
       (article.articleImage = req.files[0].originalname),

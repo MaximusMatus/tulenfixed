@@ -27,10 +27,14 @@ const articleSchema = new Schema({
     required: true,
   },
   hashtag: {
-    type:String,
-    required:true,
+    type: String,
+    required: true,
   },
   articleImage: {
+    type: String,
+    required: true,
+  },
+  imageFirstSource: {
     type: String,
     required: true,
   },
@@ -38,19 +42,26 @@ const articleSchema = new Schema({
     type: String,
     required: true,
   },
-  
+  imageSecondSource: {
+    type: String,
+    required: true,
+  },
   articleImageThird: {
+    type: String,
+    required: true,
+  },
+  imageThirdSource: {
     type: String,
     required: true,
   },
   createdAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   articleType: {
-    type:String,
-    required:true
-  }
+    type: String,
+    required: true,
+  },
 })
 
 const Article = mongoose.model("Article", articleSchema)

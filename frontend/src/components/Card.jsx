@@ -6,7 +6,7 @@ import veda from "../assets/veda.svg"
 import zaujimavosti from "../assets/zaujimavosti.svg"
 import time from "../assets/time.svg"
 import spinner from "../assets/spinner.gif"
-import spacePixel from "../assets/pixel.png"
+
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import useScrollToTop from "./ScrollToTop"

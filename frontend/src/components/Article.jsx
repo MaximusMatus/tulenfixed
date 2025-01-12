@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom"
 import axios from "axios"
 import Card from "./Card"
 import Paragraphs from "./Paragraphs"
+import instagramlogo from "../assets/instagram.svg"
+import facebooklogo from "../assets/facebook.svg"
 
 function Article() {
   const [title, setTitle] = useState("")
@@ -14,6 +16,9 @@ function Article() {
   const [fileName, setFileName] = useState("")
   const [fileNameSecond, setFileNameSecond] = useState("")
   const [fileNameThird, setFileNameThird] = useState("")
+  const [imageFirstSource, setImageFirstSource] = useState("")
+  const [imageSecondSource, setImageSecondSource] = useState("")
+  const [imageThirdSource, setImageThirdSource] = useState("")
 
   const id = useParams().id
   const API_URL = import.meta.env.VITE_API_URL
@@ -32,6 +37,9 @@ function Article() {
         setFileName(res.data.articleImage),
         setFileNameSecond(res.data.articleImageSecond),
         setFileNameThird(res.data.articleImageThird),
+        setImageFirstSource(res.data.imageFirstSource),
+        setImageSecondSource(res.data.imageSecondSource),
+        setImageThirdSource(res.data.imageThirdSource)
       ])
       .catch((err) => console.log(err))
   }, [id])
@@ -53,8 +61,8 @@ function Article() {
         </div>
         <div className="img-wrapper">
           <img className="article-title-img" src={`${API_URL}/images/${fileName}`}></img>
+        <div className="img-source">zdroj: {imageFirstSource}</div>
         </div>
-        {/* <hr className="design-line"/> */}
         <div className="article-article-wrapper">
           <div className="article-article">
             <Paragraphs rawText={articlePartOne} />
@@ -64,6 +72,7 @@ function Article() {
               className="article-title-img"
               src={`${API_URL}/images/${fileNameSecond}`}
             ></img>
+            <div className="img-source">zdroj: {imageSecondSource}</div>
           </div>
           <div className="article-article">
             {" "}
@@ -75,11 +84,39 @@ function Article() {
               className="article-title-img"
               src={`${API_URL}/images/${fileNameThird}`}
             ></img>
+            <div className="img-source">zdroj: {imageThirdSource}</div>
           </div>
           <div className="article-article">
             {" "}
             <Paragraphs rawText={articlePartThree} />
           </div>
+        </div>
+        <div className="article-end">
+        <div className="author-name">Autor: {author}</div>
+        <div className="social-links">
+          <span className="social-logo-span">
+          <a 
+        href="https://www.instagram.com/tulen.top" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        
+      >
+
+          <img src={instagramlogo} alt="instagram" />
+          </a>
+
+          </span>
+          <span className="social-logo-span">
+          <a 
+        href="https://www.facebook.com/profile.php?id=61571642497388" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        
+      >
+          <img src={facebooklogo} alt="facebook" />
+          </a>
+          </span>
+        </div>
         </div>
       </div>
       <div className="article-sidebar">
