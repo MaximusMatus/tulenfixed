@@ -90,6 +90,7 @@ router.post("/add", upload.array("articleImage", 3), (req, res) => {
 
 // Request find article by id and update
 router.put("/:id", upload.array("articleImage"), (req, res) => {
+  console.log(res.body)
   Article.findById(req.params.id).then((article) => {
     ;(article.title = req.body.title),
       (article.headline = req.body.headline),
