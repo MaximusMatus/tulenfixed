@@ -25,7 +25,7 @@ const AddArticle = () => {
 
   const changeOnClick = (e) => {
     e.preventDefault()
-    console.log(fileName)
+    
     const formData = new FormData()
 
     formData.append("title", title)
