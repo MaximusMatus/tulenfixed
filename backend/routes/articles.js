@@ -5,28 +5,18 @@ const Article = require("../models/article")
 const fs = require("fs")
 const path = require("path")
 require("dotenv").config()
-// ORIGINAL MULTER
-// const storage = multer.diskStorage({
-//   destination: (req, file, callback) => {
-//     callback(null, "././frontend/dist/uploads")
-//   },
-//   filename: (req, file, callback) => {
-//     callback(null, file.originalname)
-//   },
-// })
 
 //VPS MULTER
-
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
-    callback(null, path.join(__dirname, '../../images'))
+    callback(null, path.join(__dirname, "../../images"))
   },
   filename: (req, file, callback) => {
     callback(null, file.originalname)
   },
 })
 
-const upload = multer({ storage: storage })
+const upload = multer({ storage: storage, limits: 50 * 1024 * 1024 })
 
 // file removal function
 const removeFile = (id) => {
@@ -44,7 +34,7 @@ const removeFile = (id) => {
 
 // Request get all articles
 router.get("/", (req, res) => {
-  console.log('tried')
+  console.log("tried")
   Article.find()
     .sort({ createdAt: -1 })
     .limit(11)
@@ -61,9 +51,6 @@ router.get("/:id", (req, res) => {
 
 // test with two images
 router.post("/add", upload.array("articleImage", 3), (req, res) => {
-  console.log('tried to save')
-  //  const files = req.files
-  console.log(req.body)
   const newArticle = new Article({
     title: req.body.title,
     headline: req.body.headline,
@@ -99,7 +86,7 @@ router.put("/:id", upload.array("articleImage"), (req, res) => {
       (article.articlePartThree = req.body.articlePartThree),
       (article.author = req.body.author),
       (article.imageFirstSource = req.body.imageFirstSource),
-      (article.imageSecondSource = req.body.imageSecondSource ),
+      (article.imageSecondSource = req.body.imageSecondSource),
       (article.imageThirdSource = req.body.imageThirdSource),
       (article.hashtag = req.body.hashtag),
       (article.articleType = req.body.articleType),
